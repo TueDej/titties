@@ -1,0 +1,70 @@
+# think this wouldn't be necessary
+$include /etc/inputrc
+
+# ------------
+# Mode setting
+# ------------
+
+set editing-mode vi
+set show-mode-in-prompt on
+set vi-ins-mode-string \1\e[6 q\2
+set vi-cmd-mode-string \1\e[2 q\2
+set keyseq-timeout 50
+
+set keymap vi-insert
+RETURN: "\e\n"
+
+# --------------------
+# Completion behaviour
+# --------------------
+
+set show-all-if-ambiguous on
+set completion-query-items 16
+
+set completion-ignore-case on
+set match-hidden-files off
+set mark-symlinked-directories on
+set menu-complete-display-prefix off
+
+set skip-completed-text on
+
+set visible-stats on
+set colored-stats on
+set colored-completion-prefix on
+
+set page-completions off
+
+# ------------
+# Key bindings
+# ------------
+
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+
+"\t": menu-complete
+"\e[Z": menu-complete-backward
+
+"\e\C-h": backward-kill-word
+"\e\C-?": backward-kill-word
+
+"\C-w": backward-kill-word
+"\C-u": backward-kill-line
+
+"\C-b": backward-word
+"\C-f": forward-word
+"\C-a": beginning-of-line
+"\C-e": end-of-line
+
+"\C-l": clear-screen
+
+# why do we have to have this?!
+"\C-h": backward-delete-char
+
+# ----
+# Misc
+# ----
+
+set bell-style none
+set bind-tty-special-chars off
+
+# vim: set ft=readline:
