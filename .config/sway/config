@@ -1,0 +1,335 @@
+# =============================================================================
+# Variables & Environment
+# =============================================================================
+
+set $mod Mod4
+
+set $left  h
+set $up    k
+set $right l
+set $down  j
+
+set $term foot
+set $menu fuzzel
+set $wallpaper  $HOME/Pictures/wallpaper
+set $lockscreen $HOME/Pictures/lockscreen
+
+# =============================================================================
+# Theme Colors
+# =============================================================================
+
+set $darkAbyss    #0e1311
+set $voidSlate    #161d1a
+set $charcoal     #222222
+set $abyssGreen   #295340
+set $accentGreen  #478061
+set $ash          #555555
+set $mintTint     #7aa48d
+set $starlight    #cccccc
+set $eclipseBlue  #395b70
+set $pulsarPurple #5a4575
+set $novaRed      #7a3d44
+set $solarAmber   #755935
+
+# =============================================================================
+# Output Configuration
+# =============================================================================
+
+output eDP-1 {
+    mode 1920x1200@60Hz
+    #bg #000000 solid_color
+    bg $wallpaper fill
+    #scale 1.25
+}
+
+# =============================================================================
+# Input Configuration
+# =============================================================================
+
+input type:keyboard {
+    repeat_delay 280
+    repeat_rate 40
+
+    xkb_layout us,ir
+    xkb_options grp:alt_shift_toggle
+}
+
+input type:touchpad {
+    dwt enabled
+    dwtp enabled
+    tap enabled
+    tap_button_map lrm
+    pointer_accel -0.05
+    scroll_factor 0.77
+    drag_lock disabled
+}
+
+# =============================================================================
+# Appearance & Layout
+# =============================================================================
+
+font pango: Berkeley Mono Trial 12
+
+focus_follows_mouse no
+
+floating_modifier $mod normal
+floating_maximum_size -1 x -1
+floating_minimum_size -1 x -1
+
+default_border pixel 2
+default_floating_border pixel 2
+smart_borders no_gaps
+
+smart_gaps on
+gaps inner 10
+gaps outer 0
+
+workspace_auto_back_and_forth yes
+
+# =============================================================================
+# Window Rules
+# =============================================================================
+
+for_window [all] title_format "%title (%app_id)"
+for_window [floating] move position center
+
+for_window [title="^v2rayN - V"] floating enable
+for_window [app_id="mpv|org.telegram.desktop|oblivion-desktop"] floating enable
+for_window [app_id="imv"] floating enable, border pixel 2
+
+# =============================================================================
+# Autostart / Exec Commands
+# =============================================================================
+
+exec dbus-update-activation-environment --all
+exec wl-paste --watch cliphist store
+
+exec powerprofilesctl configure-action amdgpu_dpm --enable
+exec powerprofilesctl configure-battery-aware --disable
+
+exec /usr/libexec/polkit-mate-authentication-agent-1
+exec wlsunset -l 29.61 -L 52.53
+exec swaykbdd
+exec swayidle -w
+exec playerctld
+
+exec alsactl --file $HOME/.config/asound.state restore
+
+# =============================================================================
+# Cursor Theme
+# =============================================================================
+
+seat seat0 xcursor_theme Banana 32
+
+# =============================================================================
+# Bar Configuration
+# =============================================================================
+
+bar {
+    status_command i3status-rs
+    #status_command while date +'%Y-%m-%d %X'; do sleep 5; done
+
+    font pango: Berkeley Mono Trial 14
+    height 28
+
+    position top
+    modifier $mod
+    hidden_state hide
+    mode hide
+
+    tray_padding 10
+    icon_theme Flat-Remix-Blue-Dark
+    separator_symbol ""
+
+    colors {
+        background $darkAbyss
+        statusline $starlight
+        separator  $voidSlate
+
+        focused_workspace  $abyssGreen $abyssGreen $starlight
+        active_workspace   $voidSlate  $voidSlate  $mintTint
+        inactive_workspace $darkAbyss  $darkAbyss  $accentGreen
+        urgent_workspace   $novaRed    $novaRed    $starlight
+        binding_mode       $novaRed    $novaRed    $starlight
+    }
+}
+
+# =============================================================================
+# Modes
+# =============================================================================
+
+mode "Resize" {
+    bindsym --to-code $left  resize grow left 10 px
+    bindsym --to-code $right resize grow right 10 px
+    bindsym --to-code $down  resize grow down 10 px
+    bindsym --to-code $up    resize grow up 10 px
+
+    bindsym --to-code Shift+$left  resize shrink right 10 px
+    bindsym --to-code Shift+$right resize shrink left 10 px
+    bindsym --to-code Shift+$down  resize shrink up 10 px
+    bindsym --to-code Shift+$up    resize shrink down 10 px
+
+    bindsym --to-code Control+$left  resize grow left 80 px
+    bindsym --to-code Control+$right resize grow right 80 px
+    bindsym --to-code Control+$down  resize grow down 80 px
+    bindsym --to-code Control+$up    resize grow up 80 px
+
+    bindsym --to-code Control+Shift+$left  resize shrink right 80 px
+    bindsym --to-code Control+Shift+$right resize shrink left 80 px
+    bindsym --to-code Control+Shift+$down  resize shrink up 80 px
+    bindsym --to-code Control+Shift+$up    resize shrink down 80 px
+
+    bindsym --to-code Return mode "default"
+    bindsym --to-code Escape mode "default"
+}
+
+# =============================================================================
+# Keybindings
+# =============================================================================
+
+# --- Application Launchers ---
+bindsym --to-code $mod+Return exec $term
+bindsym --to-code $mod+d exec $menu
+bindsym --to-code $mod+x exec fuzzel --dmenu --width=68 --lines=0 | bash -i -c 'source ~/.bashrc; eval "$(< /dev/stdin)"' || notify-send Fucked!
+bindsym --to-code $mod+Escape exec swaylock
+
+# --- Window Management ---
+bindsym --to-code --no-repeat $mod+Shift+q kill
+bindsym --to-code $mod+Shift+f floating toggle
+
+bindsym --to-code $mod+f fullscreen toggle
+bindsym --to-code $mod+c move position center
+bindsym --to-code $mod+b border toggle
+
+# --- Sway Controls ---
+bindsym --to-code $mod+Shift+c reload
+bindsym --to-code $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+# --- Focus Navigation ---
+bindsym --to-code $mod+$left  focus left
+bindsym --to-code $mod+$down  focus down
+bindsym --to-code $mod+$up    focus up
+bindsym --to-code $mod+$right focus right
+bindsym --to-code $mod+Tab    focus next
+
+# --- Move Windows ---
+bindsym --to-code $mod+Shift+$left  move left 100
+bindsym --to-code $mod+Shift+$down  move down 100
+bindsym --to-code $mod+Shift+$up    move up 100
+bindsym --to-code $mod+Shift+$right move right 100
+
+# --- Workspace Switching ---
+bindsym --to-code $mod+1 workspace number 1
+bindsym --to-code $mod+2 workspace number 2
+bindsym --to-code $mod+3 workspace number 3
+bindsym --to-code $mod+4 workspace number 4
+bindsym --to-code $mod+5 workspace number 5
+bindsym --to-code $mod+6 workspace number 6
+bindsym --to-code $mod+7 workspace number 7
+bindsym --to-code $mod+8 workspace number 8
+bindsym --to-code $mod+9 workspace number 9
+bindsym --to-code $mod+0 workspace number 10
+
+bindsym --to-code $mod+BracketRight workspace next
+bindsym --to-code $mod+BracketLeft  workspace prev
+
+# --- Move Container to Workspace ---
+bindsym --to-code $mod+Shift+1 move container to workspace number 1; workspace number 1
+bindsym --to-code $mod+Shift+2 move container to workspace number 2; workspace number 2
+bindsym --to-code $mod+Shift+3 move container to workspace number 3; workspace number 3
+bindsym --to-code $mod+Shift+4 move container to workspace number 4; workspace number 4
+bindsym --to-code $mod+Shift+5 move container to workspace number 5; workspace number 5
+bindsym --to-code $mod+Shift+6 move container to workspace number 6; workspace number 6
+bindsym --to-code $mod+Shift+7 move container to workspace number 7; workspace number 7
+bindsym --to-code $mod+Shift+8 move container to workspace number 8; workspace number 8
+bindsym --to-code $mod+Shift+9 move container to workspace number 9; workspace number 9
+bindsym --to-code $mod+Shift+0 move container to workspace number 10; workspace number 10
+
+# --- Layout & Focus ---
+bindsym --to-code $mod+s split toggle
+bindsym --to-code $mod+Shift+w layout toggle tabbed split
+
+bindsym --to-code $mod+space focus mode_toggle
+
+bindsym --to-code $mod+u focus child
+bindsym --to-code $mod+Shift+u focus parent
+
+# --- Scratchpad ---
+bindsym --to-code $mod+Shift+minus move scratchpad
+bindsym --to-code $mod+minus scratchpad show
+
+# --- Opacity ---
+bindsym --to-code $mod+o opacity minus 0.08
+bindsym --to-code $mod+Shift+o opacity plus 0.08
+
+# --- Resize Mode ---
+bindsym --to-code $mod+r mode "Resize"
+
+# --- Audio (PulseAudio - commented out) ---
+#bindsym --locked --to-code XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+#bindsym --locked --to-code XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+#bindsym --locked --to-code XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+#bindsym --locked --to-code XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+# --- Audio (WirePlumber) ---
+bindsym --locked --to-code XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindsym --locked --to-code XF86AudioLowerVolume exec wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%-
+bindsym --locked --to-code XF86AudioRaiseVolume exec wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+
+bindsym --locked --to-code XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+
+# --- Media Player ---
+bindsym --locked --to-code XF86AudioPlay  exec playerctl play-pause
+bindsym --locked --to-code XF86AudioPause exec playerctl play-pause
+bindsym --locked --to-code XF86AudioNext  exec playerctl next
+bindsym --locked --to-code XF86AudioPrev  exec playerctl previous
+
+# --- Touchpad Gestures ---
+bindgesture swipe:3:down exec wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 10%-
+bindgesture swipe:3:up exec wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 10%+
+bindgesture hold:3 exec playerctl play-pause
+bindgesture swipe:right workspace next
+bindgesture swipe:left workspace prev
+
+# --- Brightness ---
+bindsym --locked --to-code XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym --locked --to-code XF86MonBrightnessUp   exec brightnessctl set +5%
+
+# --- Touchpad Toggle ---
+bindsym --locked --to-code XF86TouchpadToggle input type:touchpad events toggle
+
+# --- Screenshot ---
+bindsym --locked --to-code Print exec grimshot savecopy output && notify-send 'Captured'
+bindsym --locked --to-code Shift+Print exec grimshot savecopy anything && notify-send 'Captured'
+bindsym --locked --to-code Control+Shift+Print exec grimshot savecopy active && notify-send 'Captured'
+
+# --- Media Player Shortcuts ---
+bindsym --locked --to-code $mod+p exec playerctl play-pause
+bindsym --locked --to-code $mod+period exec playerctl next
+bindsym --locked --to-code $mod+comma  exec playerctl previous
+bindsym --locked --to-code $mod+Shift+period exec playerctl position 5+
+bindsym --locked --to-code $mod+Shift+comma  exec playerctl position 5-
+
+# --- Clipboard History ---
+bindsym --to-code $mod+v exec cliphist list | fuzzel --dmenu | cliphist decode | wl-copy
+bindsym --to-code $mod+Shift+v exec cliphist list | fuzzel --dmenu | cliphist delete
+
+# --- Window Selector ---
+bindsym $mod+grave exec rofi -show window -matching fuzzy -window-match-fields app-id -show-icons
+
+# =============================================================================
+# Window Colors
+# =============================================================================
+
+# <border> <background> <text> [<indicator> [<child_border>]]
+client.focused          $abyssGreen $abyssGreen $starlight   $accentGreen  $abyssGreen
+client.focused_inactive $voidSlate  $voidSlate  $mintTint    $eclipseBlue  $voidSlate
+client.unfocused        $voidSlate  $voidSlate  $accentGreen $pulsarPurple $voidSlate
+client.urgent           $novaRed    $voidSlate  $starlight   $solarAmber   $novaRed
+
+# =============================================================================
+# Miscellaneous
+# =============================================================================
+
+focus_wrapping no
+
+# vim: set ft=swayconfig:

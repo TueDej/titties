@@ -1,0 +1,36 @@
+font=Berkeley Mono Trial 18
+
+width=480
+height=110
+
+margin=8
+outer-margin=16
+padding=16
+
+border-size=1
+border-radius=16
+
+max-visible=7
+max-icon-size=64
+
+layer=overlay
+
+background-color=#0e1311
+text-color=#cccccc
+border-color=#295340
+progress-color=over #478061
+
+default-timeout=6400
+
+[urgency=low]
+border-color=#395b70
+
+[urgency=normal]
+border-color=#295340
+
+[urgency=high]
+border-size=2
+border-color=#7a3d44
+default-timeout=0
+
+# vim: set ft=dosini:

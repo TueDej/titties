@@ -15,6 +15,11 @@ appendpath () {  # VOID
 
 appendpath "$HOME/.local/bin"
 appendpath "$HOME/.npm-global/bin"
+appendpath "$ANDROID_HOME/cmdline-tools/latest/bin"
+appendpath "$ANDROID_HOME/platform-tools"
+appendpath "$ANDROID_HOME/build-tools"
+appendpath "$HOME/.mimocode/bin"
+appendpath "$HOME/.cargo/bin"
 unset appendpath
 
 # -------
@@ -118,10 +123,10 @@ if [[ -r /usr/share/git/git-prompt.sh ]]; then
     export GIT_PS1_SHOWUPSTREAM='auto'
 fi
 
-PS1='\[\e[38;2;120;180;255m\]\u@\h \
-\[\e[38;2;160;160;160m\]\w\
-\[\e[38;2;140;120;255m\]$(__git_ps1 " (%s)") \
-\[\e[38;2;100;255;100m\]\$ \
+PS1='\[\e[38;2;104;168;228m\]\u@\h \
+\[\e[38;2;145;126;107m\]\w\
+\[\e[38;2;224;44;109m\]$(__git_ps1 " (%s)") \
+\[\e[38;2;81;159;80m\]\$ \
 \[\e[0m\]'
 
 # ----------

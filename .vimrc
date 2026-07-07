@@ -16,6 +16,12 @@ Plug 'jasonccox/vim-wayland-clipboard'
 Plug 'airblade/vim-gitgutter'
 Plug 'sainnhe/sonokai'
 Plug 'sainnhe/edge'
+Plug 'tpope/vim-dispatch'
+Plug 'uiiaoo/java-syntax.vim'
+Plug 'kaarmu/typst.vim'
+Plug 'menisadi/kanagawa.vim'
+Plug 'srcery-colors/srcery-vim'
+Plug 'godlygeek/tabular'
 
 call plug#end()
 
@@ -23,7 +29,17 @@ call plug#end()
 " Colorscheme
 " -----------
 
-color wildcharm
+let g:edge_better_performance = 1
+let g:edge_transparent_background = 2
+let g:edge_menu_selection_background = 'green'
+let g:edge_spell_foreground = 'colored'
+
+let g:srcery_guisp_fallback = 'bg'
+
+set termguicolors
+color srcery
+
+set shortmess+=I
 
 " ---------------------
 " Terminal cursor shape
@@ -64,7 +80,8 @@ set autoindent
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
-set cinoptions=g0,(s,us,U1,ks,m1
+"set cinoptions=g0,(0,us,U1,ks,m1
+autocmd FileType c,cpp,java setlocal cinoptions=j1,J1,g0,N-s,t0,(0,w1,Ws,m1
 set expandtab
 set shiftround
 
@@ -76,6 +93,15 @@ set incsearch
 set hlsearch
 set ignorecase
 set smartcase
+
+" -------
+" Folding
+" -------
+
+set fdm=indent
+set fdc=1
+set fdn=3
+set fdl=1
 
 " ---------
 " Listchars
@@ -159,8 +185,18 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-l> <c-w>l
 nnoremap <c-h> <c-w>h
 nnoremap <c-k> <c-w>k
+inoremap <c-j> <esc><c-w>j
+inoremap <c-l> <esc><c-w>l
+inoremap <c-h> <esc><c-w>h
+inoremap <c-k> <esc><c-w>k
+tnoremap <c-j> <c-\><c-n><c-w>j
+tnoremap <c-l> <c-\><c-n><c-w>l
+tnoremap <c-h> <c-\><c-n><c-w>h
+tnoremap <c-k> <c-\><c-n><c-w>k
 nnoremap <c-w>v :vsplit<cr>
 nnoremap <c-w>s :split<cr>
+
+autocmd BufEnter * if &buftype == 'terminal' | :execute 'normal! i' | endif
 
 nnoremap H :tabprev<cr>
 nnoremap L :tabnext<cr>
@@ -185,3 +221,45 @@ vnoremap < <gv
 vnoremap > >gv
 nnoremap <leader>a ggVG
 nnoremap <leader>d :t.<cr>
+
+" ---------------------------
+" Gradle runner (Using :Make)
+" ---------------------------
+
+function! s:FindProjectRoot() abort
+    let l:marker = findfile('gradlew', '.;/')
+    if !empty(l:marker)
+        return fnamemodify(l:marker, ':p:h')
+    endif
+    return getcwd()
+endfunction
+
+function! s:ExecuteGradleRun() abort
+    if &filetype !=# 'java'
+        echoerr 'GradleRun can only be executed from a Java buffer.'
+        return
+    endif
+
+    let l:root = s:FindProjectRoot()
+
+    if !filereadable(l:root . '/gradlew')
+        echoerr 'Could not find gradlew wrapper script in upstream directories.'
+        return
+    endif
+
+    let l:old_makeprg = &l:makeprg
+    let l:old_errorformat = &l:errorformat
+
+    try
+        let &l:makeprg = l:root . '/gradlew -p ' . l:root
+
+        let &l:errorformat = '%f:%l:\ %t%.%#:\ %m,%f:%l:\ %m,%f\|%l\ %t%.%#\|\ %m'
+
+        execute 'Make run'
+    finally
+        let &l:makeprg = l:old_makeprg
+        let &l:errorformat = l:old_errorformat
+    endtry
+endfunction
+
+command! GradleRun call s:ExecuteGradleRun()
