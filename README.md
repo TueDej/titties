@@ -40,8 +40,6 @@ stow .
 
 The palette is derived from the sway theme and used across all configs.
 
-![Palette](palette.html)
-
 | Name | Hex |
 |------|-----|
 | Dark Abyss | `#0e1311` |
