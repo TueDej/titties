@@ -2,15 +2,50 @@
 
 # titties
 
-A dark, moody color palette inspired by deep space and organic veins. 12 colors ranging from the void of dark abyss to the warmth of nova red and solar amber.
+Sway dotfiles. Dark, moody, and functional.
+
+## What's in here
+
+```
+.config/
+├── sway/           # Window manager
+├── foot/           # Terminal (Agave, size 25)
+├── fuzzel/         # App launcher
+├── mako/           # Notifications
+├── mpv/            # Media player
+├── tmux/           # Multiplexer
+├── zathura/        # PDF viewer
+├── swayidle/       # Idle manager
+├── swaylock/       # Lock screen
+├── swaynag/        # Dialogs
+├── i3status-rust/  # Status bar
+└── fontconfig/     # Font rendering
+
+.bashrc             # Shell config
+.vimrc              # Editor config
+colors.json         # Palette (for reference)
+palette.html        # Interactive palette preview
+```
+
+## Install
+
+Using [GNU Stow](https://www.gnu.org/software/stow/):
+
+```bash
+cd titties
+stow .
+```
 
 ## Colors
+
+The palette is derived from the sway theme and used across all configs.
+
+![Palette](palette.html)
 
 | Name | Hex |
 |------|-----|
 | Dark Abyss | `#0e1311` |
 | Void Slate | `#161d1a` |
-| Charcoal | `#222222` |
 | Abyss Green | `#295340` |
 | Accent Green | `#478061` |
 | Mint Tint | `#7aa48d` |
@@ -19,26 +54,3 @@ A dark, moody color palette inspired by deep space and organic veins. 12 colors 
 | Pulsar Purple | `#5a4575` |
 | Nova Red | `#7a3d44` |
 | Solar Amber | `#755935` |
-
-## Preview
-
-Open `palette.html` in a browser to see an interactive floating orb visualization of the palette. Hover over each orb to reveal its name and hex value.
-
-```bash
-open palette.html
-# or
-xdg-open palette.html
-```
-
-## Files
-
-- `colors.json` - Palette in JSON format
-- `palette.html` - Interactive orb visualization
-- `images/` - Assets
-
-## Usage
-
-```bash
-# Grab colors.json for your project
-curl -s https://raw.githubusercontent.com/YOU/titties/main/colors.json
-```
