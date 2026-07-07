@@ -2,7 +2,7 @@
 
 # titties
 
-Sway dotfiles. Dark, moody, and functional.
+Sway dotfiles. Dark, moody, and functional. Best suited for Void Linux — the color palette is inspired by Void's branding.
 
 ## What's in here
 
