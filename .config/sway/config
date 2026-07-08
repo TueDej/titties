@@ -23,7 +23,7 @@ set $voidSlate    #161d1a
 set $charcoal     #222222
 set $abyssGreen   #295340
 set $accentGreen  #478061
-set $ash          #555555
+set $dusk         #555555
 set $mintTint     #7aa48d
 set $starlight    #cccccc
 set $eclipseBlue  #395b70

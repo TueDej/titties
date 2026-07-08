@@ -131,6 +131,12 @@
             top: 70%; left: 40%;
             animation: drift 15s ease-in-out infinite alternate;
         }
+        .o12 {
+            width: 160px; height: 160px;
+            background: #555555;
+            top: 65%; right: 35%;
+            animation: drift 20s ease-in-out infinite alternate-reverse;
+        }
 
         .o1 .info  { color: #478061; }
         .o2 .info  { color: #7aa48d; }
@@ -143,6 +149,7 @@
         .o9 .info  { color: #cccccc; }
         .o10 .info { color: #cccccc; }
         .o11 .info { color: #478061; }
+        .o12 .info { color: #cccccc; }
 
         @keyframes drift {
             0%   { transform: translate(0, 0) rotate(0deg); }
@@ -164,6 +171,7 @@
             .o9  { width: 90px; height: 90px; top: 50%; left: 50%; }
             .o10 { width: 140px; height: 140px; top: 45%; right: 0%; }
             .o11 { width: 110px; height: 110px; top: 65%; left: 35%; }
+            .o12 { width: 100px; height: 100px; top: 60%; right: 30%; }
         }
     </style>
 </head>
@@ -205,6 +213,9 @@
     </div>
     <div class="orb o11">
         <div class="info"><span class="name">DARK ABYSS</span><span class="hex">#0e1311</span></div>
+    </div>
+    <div class="orb o12">
+        <div class="info"><span class="name">DUSK</span><span class="hex">#555555</span></div>
     </div>
 
 </body>
