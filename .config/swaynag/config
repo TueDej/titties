@@ -1,3 +1,15 @@
 font=Berkeley Mono Trial 16
 
+background=#161d1AFF
+border=#395b70FF
+border-bottom=#395b70FF
+button-background=#295340FF
+text=#7aa48dFF
+button-text=#ccccccFF
+details-background=#0e1311FF
+border-bottom-size=2
+button-border-size=1
+button-gap=8
+button-padding=6
+
 # vim: set ft=dosini:
