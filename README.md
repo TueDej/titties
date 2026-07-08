@@ -47,6 +47,6 @@ The palette is derived from the sway theme and used across all configs.
 | Mint Tint | `#7aa48d` |
 | Starlight | `#cccccc` |
 | Eclipse Blue | `#395b70` |
-| Pulsar Purple | `#5a4575` |
+| Pulsar Purple | `#4e3a6e` |
 | Nova Red | `#7a3d44` |
-| Solar Amber | `#755935` |
+| Solar Amber | `#8a6d3b` |

@@ -27,9 +27,9 @@ set $ash          #555555
 set $mintTint     #7aa48d
 set $starlight    #cccccc
 set $eclipseBlue  #395b70
-set $pulsarPurple #5a4575
+set $pulsarPurple #4e3a6e
 set $novaRed      #7a3d44
-set $solarAmber   #755935
+set $solarAmber   #8a6d3b
 
 # =============================================================================
 # Output Configuration

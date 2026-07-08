@@ -4,7 +4,7 @@ theme = 'native'
 idle_fg = '#cccccc'
 info_fg = '#7aa48d'
 good_fg = '#478061'
-warning_fg = '#755935'
+warning_fg = '#8a6d3b'
 critical_fg = '#7a3d44'
 
 [icons]

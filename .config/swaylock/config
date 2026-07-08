@@ -14,8 +14,8 @@ indicator-idle-visible
 indicator-y-position=1024
 
 color=#000000
-bs-hl-color=#755935
-caps-lock-bs-hl-color=#755935
+bs-hl-color=#8a6d3b
+caps-lock-bs-hl-color=#8a6d3b
 caps-lock-key-hl-color=#478061
 indicator-radius=60
 indicator-thickness=10
