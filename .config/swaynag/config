@@ -1,15 +1,18 @@
-font=Berkeley Mono Trial 16
+font=Berkeley Mono Trial 13
 
-background=#161d1AFF
+background=#0e1311FF
 border=#395b70FF
-border-bottom=#395b70FF
+border-bottom=#478061FF
 button-background=#295340FF
 text=#7aa48dFF
 button-text=#ccccccFF
-details-background=#0e1311FF
-border-bottom-size=2
+details-background=#161d1aFF
+border-bottom-size=3
 button-border-size=1
-button-gap=8
-button-padding=6
+button-gap=10
+button-padding=8
+button-margin=8
+button-margin-right=12
+message-padding=8
 
 # vim: set ft=dosini:

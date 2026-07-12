@@ -203,7 +203,7 @@ bindsym --to-code $mod+b border toggle
 
 # --- Sway Controls ---
 bindsym --to-code $mod+Shift+c reload
-bindsym --to-code $mod+Shift+e exec swaynag -c ~/.config/swaynag/config -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+bindsym --to-code $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
 # --- Focus Navigation ---
 bindsym --to-code $mod+$left  focus left
