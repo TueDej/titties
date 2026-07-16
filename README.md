@@ -30,19 +30,19 @@ void-colors.html    # Full Void Linux color extraction from voidlinux.org
 
 11 colors, all derived from Void Linux's website. They're used everywhere — sway borders, bar, terminal, notifications.
 
-| Name | Hex | Swatch |
-|------|-----|--------|
-| Void Abyss | `#101010` | ![#101010](https://via.placeholder.com/15/101010/101010.png) |
-| Deep Obsidian | `#262626` | ![#262626](https://via.placeholder.com/15/262626/262626.png) |
-| Slate Core | `#333333` | ![#333333](https://via.placeholder.com/15/333333/333333.png) |
-| Glacier Blue | `#2e6da4` | ![#2e6da4](https://via.placeholder.com/15/2e6da4/2e6da4.png) |
-| Void Green | `#478061` | ![#478061](https://via.placeholder.com/15/478061/478061.png) |
-| Forest Canopy | `#295340` | ![#295340](https://via.placeholder.com/15/295340/295340.png) |
-| Lichen Glow | `#62b086` | ![#62b086](https://via.placeholder.com/15/62b086/62b086.png) |
-| Crimson Dawn | `#a94442` | ![#a94442](https://via.placeholder.com/15/a94442/a94442.png) |
-| Solar Amber | `#f0ad4e` | ![#f0ad4e](https://via.placeholder.com/15/f0ad4e/f0ad4e.png) |
-| Mist Gray | `#cccccc` | ![#cccccc](https://via.placeholder.com/15/cccccc/cccccc.png) |
-| Star White | `#ffffff` | ![#ffffff](https://via.placeholder.com/15/ffffff/ffffff.png) |
+| Name | Hex |
+|------|-----|
+| Void Abyss | <span style="border-bottom: 3px solid #101010; padding-bottom: 2px;">`#101010`</span> |
+| Deep Obsidian | <span style="border-bottom: 3px solid #262626; padding-bottom: 2px;">`#262626`</span> |
+| Slate Core | <span style="border-bottom: 3px solid #333333; padding-bottom: 2px;">`#333333`</span> |
+| Glacier Blue | <span style="border-bottom: 3px solid #2e6da4; padding-bottom: 2px;">`#2e6da4`</span> |
+| Void Green | <span style="border-bottom: 3px solid #478061; padding-bottom: 2px;">`#478061`</span> |
+| Forest Canopy | <span style="border-bottom: 3px solid #295340; padding-bottom: 2px;">`#295340`</span> |
+| Lichen Glow | <span style="border-bottom: 3px solid #62b086; padding-bottom: 2px;">`#62b086`</span> |
+| Crimson Dawn | <span style="border-bottom: 3px solid #a94442; padding-bottom: 2px;">`#a94442`</span> |
+| Solar Amber | <span style="border-bottom: 3px solid #f0ad4e; padding-bottom: 2px;">`#f0ad4e`</span> |
+| Mist Gray | <span style="border-bottom: 3px solid #cccccc; padding-bottom: 2px;">`#cccccc`</span> |
+| Star White | <span style="border-bottom: 3px solid #ffffff; padding-bottom: 2px;">`#ffffff`</span> |
 
 ## Install
 
@@ -52,29 +52,6 @@ Using [GNU Stow](https://www.gnu.org/software/stow/):
 cd titties
 stow .
 ```
-
-## Keybindings
-
-`Mod4` (Super) is the modifier. Vim keys for navigation.
-
-| Key | Action |
-|-----|--------|
-| `Mod4+Return` | Terminal |
-| `Mod4+d` | App launcher |
-| `Mod4+Escape` | Lock screen |
-| `Mod4+f` | Fullscreen |
-| `Mod4+Shift+q` | Kill window |
-| `Mod4+r` | Resize mode |
-| `Mod4+v` | Clipboard history |
-| `Mod4+p` | Play/pause media |
-| `Mod4+[` / `Mod4+]` | Previous/next workspace |
-| `Mod4+1-0` | Switch to workspace |
-| `Mod4+Shift+1-0` | Move window to workspace |
-| `Print` | Screenshot (output) |
-| `Shift+Print` | Screenshot (anything) |
-| `Ctrl+Shift+Print` | Screenshot (active window) |
-
-See `~/.config/sway/config` for the full list.
 
 ## Notes
 
