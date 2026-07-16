@@ -1,9 +1,20 @@
 \.git
 \.gitignore
 \.mimocode
+\.stow-local-ignore
 
-^/README.*
-^/TODO.*
+^\.bashrc$
+^\.inputrc$
+^\.vimrc$
+^\.bash_profile$
+^\.bash_logout$
+^\.profile$
+^\.zshrc$
+^\.zprofile$
 
-^/images
-^/images/.*
+^README.*
+^TODO.*
+^colors\.json$
+^index\.html$
+^images
+^images/.*

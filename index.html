@@ -7,7 +7,7 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            background: #0e1311;
+            background: #101010;
             min-height: 100vh;
             overflow: hidden;
             font-family: monospace;
@@ -25,7 +25,7 @@
             letter-spacing: 0.5em;
             text-transform: uppercase;
             font-weight: normal;
-            color: #7aa48d;
+            color: #62b086;
         }
         .orb {
             position: absolute;
@@ -66,13 +66,13 @@
 
         .o1 {
             width: 340px; height: 340px;
-            background: #161d1a;
+            background: #262626;
             top: 5%; left: 8%;
             animation: drift 18s ease-in-out infinite alternate;
         }
         .o2 {
             width: 220px; height: 220px;
-            background: #222222;
+            background: #333333;
             top: 12%; left: 28%;
             animation: drift 22s ease-in-out infinite alternate-reverse;
         }
@@ -90,7 +90,7 @@
         }
         .o5 {
             width: 280px; height: 280px;
-            background: #7aa48d;
+            background: #62b086;
             top: 30%; left: 35%;
             animation: drift 24s ease-in-out infinite alternate;
         }
@@ -102,54 +102,47 @@
         }
         .o7 {
             width: 200px; height: 200px;
-            background: #395b70;
+            background: #2e6da4;
             bottom: 10%; left: 15%;
             animation: drift 19s ease-in-out infinite alternate;
         }
         .o8 {
             width: 300px; height: 300px;
-            background: #4e3a6e;
+            background: #a94442;
             bottom: 5%; right: 20%;
             animation: drift 21s ease-in-out infinite alternate-reverse;
         }
         .o9 {
             width: 150px; height: 150px;
-            background: #7a3d44;
+            background: #f0ad4e;
             top: 55%; left: 55%;
             animation: drift 17s ease-in-out infinite alternate;
         }
         .o10 {
             width: 240px; height: 240px;
-            background: #8a6d3b;
+            background: #ffffff;
             top: 50%; right: 5%;
             animation: drift 23s ease-in-out infinite alternate-reverse;
         }
         .o11 {
             width: 180px; height: 180px;
-            background: #0e1311;
-            border: 1px solid #222222;
+            background: #101010;
+            border: 1px solid #262626;
             top: 70%; left: 40%;
             animation: drift 15s ease-in-out infinite alternate;
         }
-        .o12 {
-            width: 160px; height: 160px;
-            background: #555555;
-            top: 65%; right: 35%;
-            animation: drift 20s ease-in-out infinite alternate-reverse;
-        }
 
-        .o1 .info  { color: #478061; }
-        .o2 .info  { color: #7aa48d; }
-        .o3 .info  { color: #7aa48d; }
-        .o4 .info  { color: #0e1311; }
-        .o5 .info  { color: #0e1311; }
-        .o6 .info  { color: #161d1a; }
-        .o7 .info  { color: #cccccc; }
-        .o8 .info  { color: #cccccc; }
-        .o9 .info  { color: #cccccc; }
-        .o10 .info { color: #cccccc; }
+        .o1 .info  { color: #62b086; }
+        .o2 .info  { color: #62b086; }
+        .o3 .info  { color: #62b086; }
+        .o4 .info  { color: #101010; }
+        .o5 .info  { color: #101010; }
+        .o6 .info  { color: #262626; }
+        .o7 .info  { color: #ffffff; }
+        .o8 .info  { color: #ffffff; }
+        .o9 .info  { color: #101010; }
+        .o10 .info { color: #101010; }
         .o11 .info { color: #478061; }
-        .o12 .info { color: #cccccc; }
 
         @keyframes drift {
             0%   { transform: translate(0, 0) rotate(0deg); }
@@ -171,7 +164,6 @@
             .o9  { width: 90px; height: 90px; top: 50%; left: 50%; }
             .o10 { width: 140px; height: 140px; top: 45%; right: 0%; }
             .o11 { width: 110px; height: 110px; top: 65%; left: 35%; }
-            .o12 { width: 100px; height: 100px; top: 60%; right: 30%; }
         }
     </style>
 </head>
@@ -182,40 +174,37 @@
     </div>
 
     <div class="orb o1">
-        <div class="info"><span class="name">VOID SLATE</span><span class="hex">#161d1a</span></div>
+        <div class="info"><span class="name">DEEP OBSIDIAN</span><span class="hex">#262626</span></div>
     </div>
     <div class="orb o2">
-        <div class="info"><span class="name">CHARCOAL</span><span class="hex">#222222</span></div>
+        <div class="info"><span class="name">SLATE CORE</span><span class="hex">#333333</span></div>
     </div>
     <div class="orb o3">
-        <div class="info"><span class="name">ABYSS GREEN</span><span class="hex">#295340</span></div>
+        <div class="info"><span class="name">FOREST CANOPY</span><span class="hex">#295340</span></div>
     </div>
     <div class="orb o4">
-        <div class="info"><span class="name">ACCENT GREEN</span><span class="hex">#478061</span></div>
+        <div class="info"><span class="name">VOID GREEN</span><span class="hex">#478061</span></div>
     </div>
     <div class="orb o5">
-        <div class="info"><span class="name">MINT TINT</span><span class="hex">#7aa48d</span></div>
+        <div class="info"><span class="name">LICHEN GLOW</span><span class="hex">#62b086</span></div>
     </div>
     <div class="orb o6">
-        <div class="info"><span class="name">STARLIGHT</span><span class="hex">#cccccc</span></div>
+        <div class="info"><span class="name">MIST GRAY</span><span class="hex">#cccccc</span></div>
     </div>
     <div class="orb o7">
-        <div class="info"><span class="name">ECLIPSE BLUE</span><span class="hex">#395b70</span></div>
+        <div class="info"><span class="name">GLACIER BLUE</span><span class="hex">#2e6da4</span></div>
     </div>
     <div class="orb o8">
-        <div class="info"><span class="name">PULSAR PURPLE</span><span class="hex">#4e3a6e</span></div>
+        <div class="info"><span class="name">CRIMSON DAWN</span><span class="hex">#a94442</span></div>
     </div>
     <div class="orb o9">
-        <div class="info"><span class="name">NOVA RED</span><span class="hex">#7a3d44</span></div>
+        <div class="info"><span class="name">SOLAR AMBER</span><span class="hex">#f0ad4e</span></div>
     </div>
     <div class="orb o10">
-        <div class="info"><span class="name">SOLAR AMBER</span><span class="hex">#8a6d3b</span></div>
+        <div class="info"><span class="name">STAR WHITE</span><span class="hex">#ffffff</span></div>
     </div>
     <div class="orb o11">
-        <div class="info"><span class="name">DARK ABYSS</span><span class="hex">#0e1311</span></div>
-    </div>
-    <div class="orb o12">
-        <div class="info"><span class="name">DUSK</span><span class="hex">#555555</span></div>
+        <div class="info"><span class="name">VOID ABYSS</span><span class="hex">#101010</span></div>
     </div>
 
 </body>

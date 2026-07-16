@@ -1,14 +1,13 @@
 {
-    "darkAbyss": "#0e1311",
-    "voidSlate": "#161d1a",
-    "charcoal": "#222222",
-    "abyssGreen": "#295340",
-    "accentGreen": "#478061",
-    "dusk": "#555555",
-    "mintTint": "#7aa48d",
-    "starlight": "#cccccc",
-    "eclipseBlue": "#395b70",
-    "pulsarPurple": "#4e3a6e",
-    "novaRed": "#7a3d44",
-    "solarAmber": "#8a6d3b"
+    "voidAbyss": "#101010",
+    "deepObsidian": "#262626",
+    "slateCore": "#333333",
+    "glacierBlue": "#2e6da4",
+    "voidGreen": "#478061",
+    "forestCanopy": "#295340",
+    "lichenGlow": "#62b086",
+    "crimsonDawn": "#a94442",
+    "solarAmber": "#f0ad4e",
+    "mistGray": "#cccccc",
+    "starWhite": "#ffffff"
 }

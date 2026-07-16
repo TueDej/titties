@@ -1,11 +1,11 @@
 [theme]
 theme = 'native'
 [theme.overrides]
-idle_fg = '#cccccc'
-info_fg = '#7aa48d'
-good_fg = '#478061'
-warning_fg = '#8a6d3b'
-critical_fg = '#7a3d44'
+idle_fg = '#cccccc'      # mistGray
+info_fg = '#62b086'      # lichenGlow
+good_fg = '#478061'      # voidGreen
+warning_fg = '#f0ad4e'   # solarAmber
+critical_fg = '#a94442'  # crimsonDawn
 
 [icons]
 icons = 'awesome6'
@@ -15,7 +15,7 @@ backlight = ''
 [[block]]
 block = 'scratchpad'
 [block.theme_overrides]
-idle_fg = '#555555'
+idle_fg = '#333333'  # slateCore
 
 [[block]]
 block  = 'keyboard_layout'

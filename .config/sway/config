@@ -18,18 +18,17 @@ set $lockscreen $HOME/Pictures/lockscreen
 # Theme Colors
 # =============================================================================
 
-set $darkAbyss    #0e1311
-set $voidSlate    #161d1a
-set $charcoal     #222222
-set $abyssGreen   #295340
-set $accentGreen  #478061
-set $dusk         #555555
-set $mintTint     #7aa48d
-set $starlight    #cccccc
-set $eclipseBlue  #395b70
-set $pulsarPurple #4e3a6e
-set $novaRed      #7a3d44
-set $solarAmber   #8a6d3b
+set $voidAbyss    #101010
+set $deepObsidian #262626
+set $slateCore    #333333
+set $forestCanopy #295340
+set $voidGreen    #478061
+set $lichenGlow   #62b086
+set $glacierBlue  #2e6da4
+set $crimsonDawn  #a94442
+set $solarAmber   #f0ad4e
+set $mistGray     #cccccc
+set $starWhite    #ffffff
 
 # =============================================================================
 # Output Configuration
@@ -142,15 +141,15 @@ bar {
     separator_symbol ""
 
     colors {
-        background $darkAbyss
-        statusline $starlight
-        separator  $voidSlate
+        background $voidAbyss
+        statusline $mistGray
+        separator  $deepObsidian
 
-        focused_workspace  $abyssGreen $abyssGreen $starlight
-        active_workspace   $voidSlate  $voidSlate  $mintTint
-        inactive_workspace $darkAbyss  $darkAbyss  $accentGreen
-        urgent_workspace   $novaRed    $novaRed    $starlight
-        binding_mode       $novaRed    $novaRed    $starlight
+        focused_workspace  $forestCanopy $forestCanopy $mistGray
+        active_workspace   $deepObsidian $deepObsidian $lichenGlow
+        inactive_workspace $voidAbyss    $voidAbyss    $voidGreen
+        urgent_workspace   $crimsonDawn  $crimsonDawn  $mistGray
+        binding_mode       $crimsonDawn  $crimsonDawn  $mistGray
     }
 }
 
@@ -321,10 +320,10 @@ bindsym $mod+grave exec rofi -show window -matching fuzzy -window-match-fields a
 # =============================================================================
 
 # <border> <background> <text> [<indicator> [<child_border>]]
-client.focused          $abyssGreen $abyssGreen $starlight   $accentGreen  $abyssGreen
-client.focused_inactive $voidSlate  $voidSlate  $mintTint    $eclipseBlue  $voidSlate
-client.unfocused        $voidSlate  $voidSlate  $accentGreen $pulsarPurple $voidSlate
-client.urgent           $novaRed    $voidSlate  $starlight   $solarAmber   $novaRed
+client.focused          $forestCanopy $forestCanopy $mistGray   $voidGreen   $forestCanopy
+client.focused_inactive $deepObsidian $voidAbyss    $lichenGlow $glacierBlue $deepObsidian
+client.unfocused        $deepObsidian $voidAbyss    $voidGreen  $glacierBlue $deepObsidian
+client.urgent           $crimsonDawn  $deepObsidian $mistGray   $solarAmber  $crimsonDawn
 
 # =============================================================================
 # Miscellaneous

@@ -15,7 +15,7 @@ max-icon-size=64
 
 layer=overlay
 
-background-color=#0e1311
+background-color=#101010
 text-color=#cccccc
 border-color=#295340
 progress-color=over #478061
@@ -23,14 +23,14 @@ progress-color=over #478061
 default-timeout=6400
 
 [urgency=low]
-border-color=#395b70
+border-color=#2e6da4
 
 [urgency=normal]
 border-color=#295340
 
 [urgency=high]
 border-size=2
-border-color=#7a3d44
+border-color=#a94442
 default-timeout=0
 
 # vim: set ft=dosini:
